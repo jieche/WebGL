@@ -14,8 +14,10 @@ void main() {
 }
 `
 let fragmentShader = `
+precision mediump float;
+uniform vec3 u_color;
  void main() {
-  gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
+  gl_FragColor = vec4(u_color, 1.0);
  }
 `
 
@@ -42,6 +44,9 @@ for (let i = 0; i < n;i++)
 
   let a_size = gl.getAttribLocation(gl.program, 'a_size')
   gl.vertexAttrib1f(a_size, r*5)
+
+  let u_color = gl.getUniformLocation(gl.program, 'u_color')
+  gl.uniform3f(u_color, 1.0,1.0,0.0)
 
   
   //画一个点
