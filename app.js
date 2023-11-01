@@ -8,7 +8,9 @@ let gl = canvas.getContext('webgl')
 let vertexShader = `
 attribute vec2 a_position;
 attribute float a_size;
+varying vec2 v_Test;
 void main() {
+  v_Test = a_position;
   gl_Position = vec4(a_position, 0.0, 1.0);
   gl_PointSize = a_size;
 }
@@ -16,8 +18,10 @@ void main() {
 let fragmentShader = `
 precision mediump float;
 uniform vec3 u_color;
+varying vec2 v_Test;
+
  void main() {
-  gl_FragColor = vec4(u_color, 1.0);
+  gl_FragColor = vec4(v_Test,0.0, 1.0);
  }
 `
 
