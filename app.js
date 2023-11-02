@@ -12,6 +12,7 @@ varying vec3 v_color;
 void main() {
   v_color = a_color;
   gl_Position = vec4(a_position, 0.0, 1.0);
+  gl_PointSize = 10.0;
 }
 `
 let fragmentShader = `
@@ -54,7 +55,8 @@ gl.vertexAttribPointer(a_color, 3, gl.FLOAT, false, 5*FSIZE, 2*FSIZE)
 gl.enableVertexAttribArray(a_position)
 gl.enableVertexAttribArray(a_color)
 
-gl.drawArrays(gl.TRIANGLES, 0, 3)
+// gl.drawArrays(gl.TRIANGLES, 0, 3)
+gl.drawArrays(gl.POINT, 0, 2)
 
 
 
