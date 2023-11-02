@@ -56,7 +56,8 @@ gl.enableVertexAttribArray(a_position)
 gl.enableVertexAttribArray(a_color)
 
 // gl.drawArrays(gl.TRIANGLES, 0, 3)
-gl.drawArrays(gl.POINT, 0, 2)
+// gl.drawArrays(gl.POINT, 0, 2)
+gl.drawArrays(gl.LINES, 1, 3)
 
 
 
