@@ -27,9 +27,10 @@ varying vec3 v_color;
 initShaders(gl, vertexShader, fragmentShader)
 
 let vertices = [
-  -0.5, 0.0, 1.0, 0.0, 0.0,
-  0.5, 0.0, 0.0, 1.0, 0.0,
-  0.0, 0.8, 0.0, 0.0, 1.0
+  -0.5, 0.5, 1.0, 0.0, 0.0,
+  -0.5, -0.5, 0.0, 1.0, 0.0,
+  0.5, -0.5, 0.0, 0.0, 1.0,
+  0.5, 0.5, 1.0, 1.0, 1.0
 ]
 
 vertices = new Float32Array(vertices)
@@ -55,9 +56,15 @@ gl.vertexAttribPointer(a_color, 3, gl.FLOAT, false, 5*FSIZE, 2*FSIZE)
 gl.enableVertexAttribArray(a_position)
 gl.enableVertexAttribArray(a_color)
 
-// gl.drawArrays(gl.TRIANGLES, 0, 3)
-// gl.drawArrays(gl.POINT, 0, 2)
-gl.drawArrays(gl.LINES, 1, 3)
+let n = 4
+// gl.drawArrays(gl.TRIANGLES, 0, n)
+// gl.drawArrays(gl.POINT, 0, n)
+// gl.drawArrays(gl.LINES, 0, n)
+// gl.drawArrays(gl.LINE_LOOP, 0, n)
+// gl.drawArrays(gl.LINE_STRIP, 0, n)
+// gl.drawArrays(gl.TRIANGLES, 0, n)
+// gl.drawArrays(gl.TRIANGLE_STRIP, 0, n)
+gl.drawArrays(gl.TRIANGLE_FAN, 0, n)
 
 
 
